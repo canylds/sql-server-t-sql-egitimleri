@@ -49,3 +49,6 @@ SELECT Adi FROM Personeller WHERE Sehir = 'London' OR Sehir = 'Tacoma' OR Sehir 
 
 -- Between Komutu
 SELECT * FROM Personeller WHERE YEAR(DogumTarihi) BETWEEN 1950 AND 1965
+
+-- In Komutu
+SELECT * FROM Personeller WHERE Sehir IN('London', 'Tacoma', 'Kirkland')
