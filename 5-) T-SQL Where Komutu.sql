@@ -1,4 +1,4 @@
-USE Northwind
+USE KuzeyRuzgari
 
 SELECT * FROM Personeller
 

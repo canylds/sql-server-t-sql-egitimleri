@@ -1,4 +1,4 @@
-USE Northwind
+USE KuzeyRuzgari
 
 -- Select Komutu
 SELECT 3
