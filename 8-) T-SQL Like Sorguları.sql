@@ -53,3 +53,13 @@ SELECT * FROM Personeller WHERE Adi LIKE '[^a]%'
 
 -- Ýsminin baþ harfi an olmayan personelleri getirelim.
 SELECT * FROM Personeller WHERE Adi LIKE '[^an]%'
+
+-- Espace (Kaçýþ) Karakterleri
+-- Like sorgularýnda kullandýðýmýz %, _, [] gibi özel ifadeler eðer ki verilerimiz içerisinde geçiyorsa sorgulama esnasýnda hata ile karþýlaþabiliriz. Böyle durumlarda bu ifadelerin özel ifade olmadýðýný escape karakterleri ile belirleyebiliriz.
+
+-- [] Operatörü ile
+-- Escape Komutu ile
+
+SELECT * FROM Personeller WHERE Adi LIKE '[_]%'
+
+SELECT * FROM Personeller WHERE Adi LIKE 'ü_%' ESCAPE 'ü'
