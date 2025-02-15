@@ -46,3 +46,6 @@ SELECT * FROM Personeller WHERE YEAR(DogumTarihi) > 1950 AND YEAR(DogumTarihi) <
 
 -- Yaþadýðý þehri London, Tacoma ve Kirkland olan personellerin adýný listeleyelim.
 SELECT Adi FROM Personeller WHERE Sehir = 'London' OR Sehir = 'Tacoma' OR Sehir = 'Kirkland'
+
+-- Between Komutu
+SELECT * FROM Personeller WHERE YEAR(DogumTarihi) BETWEEN 1950 AND 1965
