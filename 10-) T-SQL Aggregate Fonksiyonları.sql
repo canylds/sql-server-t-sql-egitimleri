@@ -1,0 +1,19 @@
+USE Northwind
+
+-- AGGREGATE FONKSÝYONLAR
+
+-- AVG : ORTALAMA ALIR
+SELECT AVG(PersonelID) FROM Personeller
+
+-- MAX : EN BÜYÜK DEÐERÝ BULUR
+SELECT MAX(PersonelID) FROM Personeller
+
+-- MIN : EN KÜÇÜK DEÐERÝ BULUR
+SELECT MIN(PersonelID) FROM Personeller
+
+-- COUNT : TOPLAM SAYISINI VERÝR
+SELECT COUNT(*) FROM Personeller
+SELECT COUNT(Adi) FROM Personeller
+
+-- SUM : TOPLAMINI VERÝR
+SELECT SUM(NakliyeUcreti) FROM Satislar
