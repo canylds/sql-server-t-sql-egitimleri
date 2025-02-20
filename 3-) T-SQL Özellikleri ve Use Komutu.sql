@@ -6,3 +6,5 @@
 
 -- T-SQL büyük küçük harf duyarlýlýðýna sahip bir dil deðildir.
 -- can = Can = CaN
+
+-- Kullanýlan veri tabaný için -> https://www.gencayyildiz.com/blog/northwind-turkce-versiyonu/
