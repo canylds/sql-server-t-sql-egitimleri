@@ -32,3 +32,12 @@ SELECT s.SatisID, p.Adi + ' ' + p.Soyadi FROM Satislar s INNER JOIN Personeller 
 -- Faks numarasý "null" olmayan tedarikçilerden alýnmýþ ürünler nelerdir? (Urunler, Tedarikciler)
 SELECT u.UrunAdi FROM Urunler u INNER JOIN Tedarikciler t ON u.TedarikciID = t.TedarikciID WHERE t.Faks <> 'Null'
 SELECT u.UrunAdi FROM Urunler u INNER JOIN Tedarikciler t ON u.TedarikciID = t.TedarikciID WHERE t.Faks IS NOT NULL
+
+
+-- =======================================================================
+-- Ýkiden Fazla Tabloyu Ýliþkisel Birleþtirme
+-- 1997 yýlýndan sonra Nancy nin satýþ yaptýðý firmalarýn isimleri. (Musteriler, Satislar, Personeller)
+SELECT * FROM Personeller p INNER JOIN Satislar s ON p.PersonelID = s.PersonelID INNER JOIN Musteriler m ON s.MusteriID = m.MusteriID WHERE p.Adi = 'Nancy' AND YEAR(s.SatisTarihi) > 1997
+
+-- Limited olan tedarikçilerden alýnmýþ Seafood kategorisindeki ürünlerin toplam satýþ tutarý. (Urunler, Kategoriler, Tedarikciler)
+SELECT SUM(u.HedefStokDuzeyi * u.BirimFiyati) FROM Urunler u INNER JOIN Tedarikciler t ON u.TedarikciID = t.TedarikciID INNER JOIN Kategoriler k ON u.KategoriID = k.KategoriID Where t.SirketAdi LIKE '%Ltd.%' AND k.KategoriAdi = 'Seafood';
