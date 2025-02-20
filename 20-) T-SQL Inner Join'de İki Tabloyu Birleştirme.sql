@@ -41,3 +41,10 @@ SELECT * FROM Personeller p INNER JOIN Satislar s ON p.PersonelID = s.PersonelID
 
 -- Limited olan tedarikçilerden alýnmýþ Seafood kategorisindeki ürünlerin toplam satýþ tutarý. (Urunler, Kategoriler, Tedarikciler)
 SELECT SUM(u.HedefStokDuzeyi * u.BirimFiyati) FROM Urunler u INNER JOIN Tedarikciler t ON u.TedarikciID = t.TedarikciID INNER JOIN Kategoriler k ON u.KategoriID = k.KategoriID Where t.SirketAdi LIKE '%Ltd.%' AND k.KategoriAdi = 'Seafood';
+
+
+-- ***************************************************
+-- Ayný Tabloyu Ýliþkisel Olarak Birleþtirme
+
+-- Personellerimin baðlý olarak çalýþtýðý kiþileri listele? (Personeller, Personeller)
+SELECT p1.Adi, p2.Adi FROM Personeller p1 INNER JOIN Personeller p2 ON p1.BagliCalistigiKisi = p2.PersonelID
