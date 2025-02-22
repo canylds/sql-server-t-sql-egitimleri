@@ -10,7 +10,9 @@ USE KuzeyRuzgari
 -- SELECT
 SELECT * FROM Personeller
 
+
 -- INSERT
+
 -- INSERT [Tablo Adý](Kolonlar) VALUES(Deðerler)
 INSERT Personeller(Adi, SoyAdi) VALUES('Can', 'Yoldaþ')
 INSERT Personeller VALUES('Yoldaþ', 'Can', 'Yazýlým ve Veritabaný Uzmaný', 'YM', '08.19.2001', GETDATE(), 'Sakarya', 'Sakarya', 'Marmara', '54650', 'Türkiye', '00000000', NULL, NULL, NULL, NULL, NULL)
@@ -45,6 +47,7 @@ INSERT OrnekPersoneller SELECT Adi, Soyadi FROM Personeller
 SELECT Adi, Soyadi, Ulke INTO OrnekPersoneller2 FROM Personeller
 -- Bu yöntemle primary key ve foreign keyler oluþturulamazlar
 
+
 -- UPDATE
 
 -- UPDATE [Tablo Adý] Set [Kolon Adý] = Deðer
@@ -61,3 +64,14 @@ UPDATE Urunler SET UrunAdi = (SELECT Adi FROM Personeller WHERE PersonelID = 3)
 
 -- [UPDATE Sorgusunda TOP Keywordü ile Güncelleme Yapmak]
 UPDATE TOP(30) Urunler SET UrunAdi = 'X'
+
+
+-- DELETE
+-- DELETE FROM [Tablo Adý]
+DELETE FROM Urunler
+
+-- [Delete Sorgusuna WHERE Þartý Yazmak]
+DELETE FROM Urunler WHERE KategoriID < 3
+
+-- [Dikkat Edilmesi Gerekenler]
+-- Delete sorgusuyla tablo içerisindeki tüm verileri silmemiz identity kolonunu sýfýrlamayacaktýr. Silme iþlemiden sonra ilk eklenen veride kalýndýðý yerin id deðeri verilecektir.
