@@ -44,3 +44,20 @@ INSERT OrnekPersoneller SELECT Adi, Soyadi FROM Personeller
 -- [SELECT Sorgusu Sonucu Gelen Verileri Farklý Bir Tablo Oluþturarak Kaydetme]
 SELECT Adi, Soyadi, Ulke INTO OrnekPersoneller2 FROM Personeller
 -- Bu yöntemle primary key ve foreign keyler oluþturulamazlar
+
+-- UPDATE
+
+-- UPDATE [Tablo Adý] Set [Kolon Adý] = Deðer
+UPDATE OrnekPersoneller2 SET Adi = 'Mehmet'
+
+-- [UPDATE Sorgusuna WHERE Þartý Yazmak]
+UPDATE OrnekPersoneller2 SET Adi = 'Mehmet' WHERE Adi = 'Nancy'
+
+-- [UPDATE Sorgusunda JOIN Kullanarak Birden Fazla Tabloda Güncelleme Yapmak]
+UPDATE Urunler SET UrunAdi = k.KategoriAdi FROM Urunler u INNER JOIN Kategoriler k ON u.KategoriID = k.KategoriID
+
+-- [UPDATE Sorgusunda Subquery ile Güncelleme Yapmak]
+UPDATE Urunler SET UrunAdi = (SELECT Adi FROM Personeller WHERE PersonelID = 3)
+
+-- [UPDATE Sorgusunda TOP Keywordü ile Güncelleme Yapmak]
+UPDATE TOP(30) Urunler SET UrunAdi = 'X'
